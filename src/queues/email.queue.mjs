@@ -9,7 +9,7 @@ emailQueue.process(emailProcess);
 
 const sendNewEmail = (data) => {
   emailQueue.add(data, {
-    attempts: 5,
+    attempts: 2,
   });
 };
 
