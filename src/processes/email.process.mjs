@@ -1,12 +1,11 @@
 import nodemailer from "nodemailer";
 
 const emailProcess = async (job) => {
-
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: "tbajlot@gmail.com",
-      pass: "gaozcpwazujlibxs",
+      pass: "",
     },
   });
 
