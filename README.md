@@ -52,7 +52,15 @@ The service will start on the default port (8080), or you can set the PORT envir
 
 ## Sending an Email
 
-To send an email, make a POST request to the /send-email endpoint with the email details in the request body. The email will be added to the email processing queue and sent asynchronously.
+To send an email using the HTML form, access the form by making a GET request to the /send-email endpoint. The HTML form will be served, allowing users to input email details and send emails through the service.
+
+Example GET request:
+
+```http
+GET http://localhost:8080/send-email
+```
+
+To send an email programmatically, make a POST request to the /send-email endpoint with the email details in the request body. The email will be added to the email processing queue and sent asynchronously.
 
 Example POST request:
 
@@ -61,7 +69,7 @@ POST http://localhost:8080/send-email
 Content-Type: application/json
 
 {
-  "to": "recipient@example.com",
+  "recipient": "recipient@example.com",
   "subject": "Hello from Email Queue Service",
   "message": "This is a test email."
 }
