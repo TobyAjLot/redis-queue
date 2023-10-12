@@ -19,7 +19,6 @@ app.get("/send-email", (req, res) => {
 
 app.post("/send-email", async (req, res) => {
   const { recipient, subject, message } = req.body;
-  console.log(recipient, subject, message);
   await sendNewEmail({
     from: process.env.USER,
     to: recipient,
