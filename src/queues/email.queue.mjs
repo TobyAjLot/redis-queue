@@ -1,8 +1,11 @@
 import Bull from "bull";
 import emailProcess from "../processes/email.process.mjs";
+import * as dotenv from "dotenv";
+
+dotenv.config({ path: "../.env" });
 
 const emailQueue = new Bull("email", {
-  redis: "redis://127.0.0.1:6379",
+  redis: process.env.REDIS_URL,
 });
 
 emailQueue.process(emailProcess);
