@@ -19,13 +19,18 @@ app.get("/send-email", (req, res) => {
 
 app.post("/send-email", async (req, res) => {
   const { recipient, subject, message } = req.body;
-  await sendNewEmail({
-    from: process.env.USER,
-    to: recipient,
-    subject: subject,
-    html: `<p>${message}</p>`,
-  });
-  res.send({ status: "Ok" });
+
+  try {
+    await sendNewEmail({
+      from: process.env.USER,
+      to: recipient,
+      subject: subject,
+      html: `<p>${message}</p>`,
+    });
+    res.send({ status: "Ok" });
+  } catch (error) {
+    res.json({ message: "An error occur while trying to send your mail" });
+  }
 });
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
