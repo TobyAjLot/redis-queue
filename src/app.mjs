@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.post("/send-email", async (req, res) => {
   const { message, ...restBody } = req.body;
   await sendNewEmail({
+    from: process.env.USER,
     ...restBody,
     html: `<p>${message}</p>`,
   });

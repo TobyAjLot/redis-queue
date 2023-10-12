@@ -61,6 +61,7 @@ POST http://localhost:8080/send-email
 Content-Type: application/json
 
 {
+    @
   "to": "recipient@example.com",
   "subject": "Hello from Email Queue Service",
   "message": "This is a test email."
