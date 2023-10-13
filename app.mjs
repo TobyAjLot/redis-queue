@@ -7,7 +7,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config({ path: "./.env" });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 
 const app = express();
 app.use(bodyParser.json());
