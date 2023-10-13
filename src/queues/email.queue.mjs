@@ -4,9 +4,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config({ path: "../.env" });
 
-const emailQueue = new Bull("email", {
-  redis: process.env.REDIS_URL,
-});
+const emailQueue = new Bull("email");
 
 emailQueue.process(emailProcess);
 
